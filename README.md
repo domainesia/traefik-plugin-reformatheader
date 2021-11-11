@@ -10,8 +10,8 @@ Rewrite Header Regex is a middleware plugin for [Traefik](https://traefik.io) wh
 [pilot]
   token = "xxxx"
 
-[experimental.plugins.rewritebody]
-  modulename = "github.com/domainesia/traefik-plugin-rewriteheader"
+[experimental.plugins.reformatheader]
+  modulename = "github.com/domainesia/traefik-plugin-reformatheader"
   version = "v0.0.1"
 ```
 
@@ -26,7 +26,7 @@ To configure the Rewrite Head plugin you should create a [middleware](https://do
     [http.routers.my-router]
       rule = "Host(`localhost`)"
       service = "my-service"
-      middlewares = ["rewriteheader"]
+      middlewares = ["reformatheader"]
 
   [http.services]
     [http.services.my-service.loadBalancer]
@@ -34,7 +34,7 @@ To configure the Rewrite Head plugin you should create a [middleware](https://do
         url = "http://127.0.0.1"
 
   [http.middlewares]
-    [http.middlewares.rewriteheader.plugin.dev]
+    [http.middlewares.reformatheader.plugin.dev]
       fromhead  = "X-TargetHeader" //required
       regex     = "f(oo).?"        //required
       create    = "X-NewHeader"    //required

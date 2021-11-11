@@ -1,4 +1,4 @@
-package traefik_plugin_rewriteheader
+package traefik_plugin_reformatheader
 
 import (
 	"context"
@@ -9,10 +9,10 @@ import (
 
 // Config the plugin configuration.
 type Config struct {
-	FromHead  string `json:"fromhead,omitempty"`  // target header
-	Regex     string `json:"regex,omitempty"`     // variable for creating a new header that will store data from the target header
-	Create    string `json:"create,omitempty"`    // creating a new header for store extracted data from the old
-	Format    string `json:"format,omitempty"`    // transform captured data on the new header
+	FromHead string `json:"fromhead,omitempty"` // target header
+	Regex    string `json:"regex,omitempty"`    // variable for creating a new header that will store data from the target header
+	Create   string `json:"create,omitempty"`   // creating a new header for store extracted data from the old
+	Format   string `json:"format,omitempty"`   // transform captured data on the new header
 }
 
 // CreateConfig creates and initializes the plugin configuration.
